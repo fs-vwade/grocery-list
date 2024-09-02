@@ -1,0 +1,24 @@
+:root {
+	--palette-mint-green: hsl(140, 62%, 85%);
+	--palette-mint-lighter: hsla(140, 100%, 84%, 30%);
+	--palette-mint-darker: hsla(140, 100%, 16%, 30%);
+}
+body {
+	background-color: var(--palette-mint-darker);
+}
+
+.main {
+	width: 90vw;
+	height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--palette-mint-green);
+	border-color: var(--palette-mint-darker);
+	border-width: 100%;
+	border-style: solid;
+}
+
+.main h1 {
+	align-self: start;
+}
