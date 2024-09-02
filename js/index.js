@@ -43,7 +43,7 @@ class GroceryList {
 		this.subsections = Object.keys(this.items);
 	}
 
-	/** Used to update class items using the accumulator method.
+	/** Used to update class items using the push method.
 	 *
 	 * @param {Object} new_item
 	 */
