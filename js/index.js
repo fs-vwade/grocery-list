@@ -50,8 +50,8 @@ class GroceryList {
 	update_items(new_item) {
 		Object.keys(new_item).forEach((key) => {
 			new_item[key].forEach((e) => {
-				// accumulator method
-				this.items[key] = [...this.items[key], e];
+				// push method
+				this.items[key].push(e);
 			});
 		});
 		this.update_subsections();
