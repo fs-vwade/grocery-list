@@ -59,10 +59,14 @@ class GroceryList {
 }
 
 body = document.body;
-grocery_list = document.createElement("div");
-grocery_list_header = document.createElement("h1");
+page_body = document.createElement("div");
+page_header = document.createElement("h1");
+content = document.createElement("div");
 
-grocery_list_header.innerText = "A Convenient Way to Shop!";
+page_body.className = "main"; // main container
+content.className = "content"; // section container
+
+page_header.innerText = "A Convenient Way to Shop!";
 
 /** Grocery subcategories
  * - perishables (milk, yogurt, juice, eggs, bacon)
@@ -73,5 +77,6 @@ grocery_list_header.innerText = "A Convenient Way to Shop!";
  */
 list_items = [];
 
-grocery_list.append(grocery_list_header);
-body.append(grocery_list);
+page_body.append(page_header);
+page_body.append(content);
+body.append(page_body);

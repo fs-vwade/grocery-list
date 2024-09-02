@@ -1,21 +1,27 @@
 :root {
-	--palette-mint-green: hsl(140, 62%, 85%);
+	--palette-mint: hsl(140, 62%, 85%);
 	--palette-mint-lighter: hsla(140, 100%, 84%, 30%);
 	--palette-mint-darker: hsla(140, 100%, 16%, 30%);
 }
 body {
 	background-color: var(--palette-mint-darker);
+	display: flex;
+	margin: 0;
+	border: 0;
+	padding: 0;
 }
 
 .main {
-	width: 90vw;
-	height: 90vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--palette-mint-green);
+	width: 96vw;
+	height: 100vh;
+	overflow-y: hidden;
+	/*align-items: center;
+	justify-content: center;*/
+	align-self: start;
+	justify-self: left;
+	background-color: var(--palette-mint);
 	border-color: var(--palette-mint-darker);
-	border-width: 100%;
+	border-width: 0 4vw 0 0;
 	border-style: solid;
 }
 
