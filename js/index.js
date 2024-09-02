@@ -1,14 +1,15 @@
 /** According to the project requirements:
  * storage_location - the name of a storage location in the kitchen
- * item_dictionary - an array of item types
+ * item_dictionaries - one or more an array of item types
  * item type - subcategory, the key name of each sub-array in the list
  *
  * The storage location is the item category, and the item type is its subcategory
  */
 class GroceryList {
-	constructor(storage_location, item_dictionary) {
+	constructor(storage_location, item_dictionaries) {
 		this.location = storage_location;
-		this.items = item_dictionary;
+		this.items = item_dictionaries;
+		this.update_subsections()
 	}
 
 	get section() {
@@ -16,10 +17,31 @@ class GroceryList {
 	}
 
 	get subsections() {
-		sections = [];
-		tmp = {};
-		tmp.this.items.forEach( => {});
+		return this.subsections;
 	}
+
+	update_subsections() {
+		this.subsections = [];
+		Object.keys(this.items).forEach((e) => {
+			this.subsections.append(e);
+		});
+	}
+
+	/** Used to update class items using the accumulator method.
+	 *
+	 * @param {Object} new_item
+	 */
+	update_items(new_item) {
+		Object.keys(new_item).forEach(key => {
+			new_item.key.forEach()
+		})
+		values = Object.values(new_item)
+		this.items = {
+			this.items,
+			new_item
+		}
+		this.update_subsections()
+	};
 }
 
 body = document.body;
