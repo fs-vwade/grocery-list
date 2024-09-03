@@ -93,6 +93,7 @@ div.content section img {
 	flex-flow: column;
 	height: 240pt;
 	width: 320pt;
+	margin: 0 1em;
 }
 .subsection {
 	display: flex;
