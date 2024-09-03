@@ -29,7 +29,6 @@ class GroceryList {
 	constructor(storage_location, item_dictionaries) {
 		this.location = storage_location;
 		this.items = item_dictionaries;
-		this.update_subsections();
 	}
 
 	get section() {
@@ -37,11 +36,7 @@ class GroceryList {
 	}
 
 	get subsections() {
-		return this.subsections;
-	}
-
-	update_subsections() {
-		this.subsections = Object.keys(this.items);
+		return Object.keys(this.items);
 	}
 
 	/** Used to update class items using the push method.
@@ -55,7 +50,6 @@ class GroceryList {
 				this.items[key].push(e);
 			});
 		});
-		this.update_subsections();
 	}
 }
 
@@ -67,7 +61,7 @@ page_header = document.createElement("h1");
 page_footer = document.createElement("div");
 page_content = document.createElement("div");
 page_sidebar = document.createElement("div");
-vertical_content = document.createElement("section");
+//vertical_content = document.createElement("section");
 
 page_body.className = "main"; // main container
 page_body_left.className = "main-left"; // main container
@@ -76,7 +70,7 @@ page_header.className = "header"; // main container
 page_footer.className = "footer"; // main container
 page_content.className = "content"; // section container
 page_sidebar.className = "main sidebar"; // sidebar
-vertical_content.className = "vertical-bar"; // sidebar
+//vertical_content.className = "vertical-bar"; // sidebar
 
 page_header.innerText = "A Convenient Way to Shop!";
 
@@ -87,13 +81,63 @@ page_header.innerText = "A Convenient Way to Shop!";
  * - canned (soup, corn, carrots, milk, beans)
  * - spices (pepper, salt, thyme)
  */
-list_items = [];
+list_items = [
+	new GroceryList("Pantry", {
+		canned: [],
+		dry: [],
+	}),
+	new GroceryList("Freezer", {
+		frozen: [],
+	}),
+	new GroceryList("Refrigerator", {
+		perishables: { milk: 1, yogurt: 12, eggs: 12 },
+		fruit: [],
+		meat: [],
+	}),
+	new GroceryList("Cabinet", {
+		spices: [],
+		dry: [],
+	}),
+];
 
 list_items.forEach((e) => {
-	page_content.append(e);
+	const new_section = document.createElement("section");
+	const new_section_header = document.createElement("h2");
+	const new_section_thumbnail = document.createElement("img");
+	const new_section_subsections = document.createElement("div");
+
+	new_section_header.innerText = e.location;
+
+	new_section.append(new_section_header);
+	new_section.append(new_section_subsections);
+
+	//console.log("what object?", Object.entries(e.items))
+	Object.entries(e.items).forEach((e) => {
+		subsection = document.createElement("div");
+		subsection_header = document.createElement("h3");
+		subsection_list = document.createElement("ul");
+
+		subsection_header.innerText = e[0];
+
+		Object.keys(e[1]).forEach((e) => {
+			list_element = document.createElement("li");
+			list_element.innerText = e;
+
+			subsection_list.append(list_element);
+		});
+
+		subsection.append(subsection_header);
+		subsection.append(subsection_list);
+		new_section_subsections.append(subsection);
+
+		console.log(e[0], "/", ...Object.keys(e[1]));
+	});
+
+	page_content.append(new_section);
+	//page_content.append(e);
 });
 
-page_content.append(vertical_content);
+//page_content.append(vertical_content);
 
 page_body.append(page_body_left);
 page_body.append(page_body_right);
