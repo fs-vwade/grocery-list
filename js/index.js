@@ -1,7 +1,8 @@
 class GroceryItem {
-	constructor(item_name, item_count) {
+	constructor(item_name, item_count, item_type) {
 		this.item_name = item_name;
 		this.item_count = item_count;
+		this.item_type = item_type;
 	}
 
 	get name() {
@@ -60,11 +61,22 @@ class GroceryList {
 
 body = document.body;
 page_body = document.createElement("div");
+page_body_left = document.createElement("div");
+page_body_right = document.createElement("div");
 page_header = document.createElement("h1");
-content = document.createElement("div");
+page_footer = document.createElement("div");
+page_content = document.createElement("div");
+page_sidebar = document.createElement("div");
+vertical_content = document.createElement("section");
 
 page_body.className = "main"; // main container
-content.className = "content"; // section container
+page_body_left.className = "main-left"; // main container
+page_body_right.className = "main-right"; // main container
+page_header.className = "header"; // main container
+page_footer.className = "footer"; // main container
+page_content.className = "content"; // section container
+page_sidebar.className = "main sidebar"; // sidebar
+vertical_content.className = "vertical-bar"; // sidebar
 
 page_header.innerText = "A Convenient Way to Shop!";
 
@@ -77,6 +89,16 @@ page_header.innerText = "A Convenient Way to Shop!";
  */
 list_items = [];
 
-page_body.append(page_header);
-page_body.append(content);
+list_items.forEach((e) => {
+	page_content.append(e);
+});
+
+page_content.append(vertical_content);
+
+page_body.append(page_body_left);
+page_body.append(page_body_right);
+page_body_left.append(page_header);
+page_body_left.append(page_content);
+page_body_left.append(page_footer);
+//page_body_right.append(page_sidebar);
 body.append(page_body);

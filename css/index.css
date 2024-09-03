@@ -1,20 +1,28 @@
 :root {
 	--palette-mint: hsl(140, 62%, 85%);
-	--palette-mint-lighter: hsla(140, 100%, 84%, 30%);
+	--palette-mint-light: hsla(140, 62%, 80%, 9.375%);
+	--palette-mint-dark: hsla(140, 100%, 16%, 9.375%);
+	--palette-mint-lighter: hsla(140, 100%, 80%, 30%);
 	--palette-mint-darker: hsla(140, 100%, 16%, 30%);
 }
 body {
 	background-color: var(--palette-mint-darker);
 	display: flex;
+	/*overflow: hidden;*/
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 	margin: 0;
 	border: 0;
 	padding: 0;
+	height: 100%;
 }
 
-.main {
+div.main {
 	width: 96vw;
 	height: 100vh;
-	overflow-y: hidden;
+	display: flex;
+	flex-flow: column;
+	overflow: hidden;
 	/*align-items: center;
 	justify-content: center;*/
 	align-self: start;
@@ -25,6 +33,48 @@ body {
 	border-style: solid;
 }
 
-.main h1 {
-	align-self: start;
+div.main div {
+	display: inherit;
+	flex-flow: inherit;
+	overflow: inherit;
+}
+
+.header {
+	flex: 0 1 auto;
+	flex-flow: column;
+	align-self: center;
+	justify-content: center;
+	padding: 0 1em;
+}
+
+div.content {
+	background-color: var(--palette-mint-dark);
+	/*display: flex;*/
+	flex: 1 1 auto;
+	flex-flow: column;
+	overflow-y: auto;
+	/*padding-right: 17px;
+	box-sizing: content-box;*/
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.vertical-bar {
+	width: 50%;
+	min-height: 1000px;
+	background-color: var(--palette-mint-dark);
+	margin-top: 2em;
+	border: 0;
+	border-bottom: 2em;
+	border-style: solid;
+}
+
+.footer {
+	height: 2rem;
+	flex: 0 1 40px;
+}
+
+.sidebar {
+	display: hidden;
+	flex-flow: column;
 }
