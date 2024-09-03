@@ -28,25 +28,48 @@ page_header.innerText = "A Convenient Way to Shop!";
  */
 list_items = {
 	pantry: {
-		canned: {},
-		dry: {},
+		canned: {
+			soup: 4,
+			corn: 3,
+			spinach: 2,
+			milk: 6,
+		},
+		dry: {
+			beans: 3,
+			sugar: 1,
+			flour: 2,
+		},
+		vegetables: {
+			onions: 4,
+			garlic: 3,
+		},
 	},
 	freezer: {
-		frozen: {},
-		meat: {},
+		frozen: {
+			milk: 1,
+			yogurt: 8,
+			eggs: 12,
+		},
+		meat: {
+			steaks: 5,
+			fish: 3,
+			shrimp: 8,
+		},
 	},
 	refrigerator: {
 		perishables: {
 			milk: 1,
 			yogurt: 8,
 			eggs: 12,
+			butter: 4,
 		},
-		fruit: {},
-		meat: {},
-	},
-	pantry: {
-		canned: {},
-		dry: {},
+		fruit: {
+			apples: 8,
+			pears: 5,
+		},
+		meat: {
+			bacon: 20,
+		},
 	},
 };
 
@@ -55,12 +78,6 @@ String.prototype.capitalize = function () {
 		return String(c).toUpperCase();
 	});
 };
-
-function ft_capitalize(s) {
-	return String(s).replace(s[0], (c) => {
-		return String(c).toUpperCase();
-	});
-}
 
 Object.entries(list_items).forEach((e) => {
 	const new_section = document.createElement("section");
