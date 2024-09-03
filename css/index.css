@@ -12,6 +12,8 @@
 }
 body {
 	background-color: var(--palette-mint-darker);
+	font-family: "Ubuntu Sans";
+	font-weight: 320;
 	display: flex;
 	/*overflow: hidden;*/
 	-ms-overflow-style: none;
