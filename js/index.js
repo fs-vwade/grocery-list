@@ -129,6 +129,8 @@ Object.entries(list_items).forEach((e) => {
 	});
 	console.log(e[0], "/", ...Object.keys(e[1]));
 
+	new_section_thumbnail.src = `images/${e[0]}.png`;
+
 	new_section.append(new_section_thumbnail);
 	page_content.append(new_section);
 	//page_content.append(e);
