@@ -69,7 +69,8 @@ div.content {
 }
 
 div.content section {
-	background-color: hsl(170, 30, 70);
+	background-color: hsl(170, 70%, 70%);
+	background: linear-gradient(hsla(170, 70%, 70%, 0%), hsl(170, 70%, 70%));
 	display: flex;
 	flex-wrap: wrap;
 	width: 90%;
