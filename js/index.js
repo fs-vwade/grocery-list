@@ -99,8 +99,31 @@ list_items = [
 		dry: [],
 	}),
 ];
+list_items = {
+	pantry: {
+		canned: {},
+		dry: {}
+	},
+	freezer: {
+		frozen: {},
+		meat: {}
+	},
+	refrigerator: {
+		perishables: {
+			milk: 1,
+			yogurt: 8,
+			eggs: 12,
+		},
+		fruit: {}
+		meat: {}
+	},
+	pantry: {
+		canned: {},
+		dry: {}
+	},
+};
 
-list_items.forEach((e) => {
+Object.entries(list_items).forEach((e) => {
 	const new_section = document.createElement("section");
 	const new_section_header = document.createElement("h2");
 	const new_section_thumbnail = document.createElement("img");
