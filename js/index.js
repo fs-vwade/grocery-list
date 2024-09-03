@@ -102,11 +102,11 @@ list_items = [
 list_items = {
 	pantry: {
 		canned: {},
-		dry: {}
+		dry: {},
 	},
 	freezer: {
 		frozen: {},
-		meat: {}
+		meat: {},
 	},
 	refrigerator: {
 		perishables: {
@@ -114,13 +114,37 @@ list_items = {
 			yogurt: 8,
 			eggs: 12,
 		},
-		fruit: {}
-		meat: {}
+		fruit: {},
+		meat: {},
 	},
 	pantry: {
 		canned: {},
-		dry: {}
+		dry: {},
 	},
+};
+
+const ft_toupper = (c) => {
+	if (
+		typeof c === "string" &&
+		97 <= String(c).charCodeAt(0) &&
+		String(c).charCodeAt(0) <= 122
+	) {
+		return String.fromCharCode(String(c).charCodeAt(0) - 32);
+	}
+};
+
+const ft_capitalize = (s) => {
+	//if (typeof s === "string") {
+	//	let i = 0;
+
+	//	/** Go to first non-whitespace character */
+	//	while ((i += -1 < String(" \t\n\r\v").indexOf(s[i])) < s.length) {
+	//		//++i;
+	//	}
+
+	//	s[i] = ft_toupper(s[i]);
+	//}
+	return s;
 };
 
 Object.entries(list_items).forEach((e) => {
@@ -129,35 +153,36 @@ Object.entries(list_items).forEach((e) => {
 	const new_section_thumbnail = document.createElement("img");
 	const new_section_subsections = document.createElement("div");
 
-	new_section_header.innerText = e.location;
+	new_section_header.innerText = e[0];
 
 	new_section.prepend(new_section_header);
 	//new_section.append(new_section_subsections);
 
 	//console.log("what object?", Object.entries(e.items))
-	Object.entries(e.items).forEach((e) => {
-		subsection = document.createElement("div");
-		subsection_header = document.createElement("h3");
-		subsection_list = document.createElement("ul");
+	//Object.entries(e.items).forEach((e) => {
+	//	subsection = document.createElement("div");
+	//	subsection_header = document.createElement("h3");
+	//	subsection_list = document.createElement("ul");
 
-		subsection.className = "subsection";
+	//	subsection.className = "subsection";
 
-		subsection_header.innerText = e[0];
+	//	subsection_header.innerText = e[0];
 
-		Object.keys(e[1]).forEach((e) => {
-			list_element = document.createElement("li");
-			list_element.innerText = e;
+	//	Object.keys(e[1]).forEach((e) => {
+	//		list_element = document.createElement("li");
+	//		list_element.innerText = e;
 
-			subsection_list.append(list_element);
-		});
+	//		subsection_list.append(list_element);
+	//	});
 
-		subsection.append(subsection_header);
-		subsection.append(subsection_list);
-		//new_section_subsections.append(subsection);
-		new_section.append(subsection);
+	//	subsection.append(subsection_header);
+	//	subsection.append(subsection_list);
+	//	//new_section_subsections.append(subsection);
+	//	new_section.append(subsection);
 
-		console.log(e[0], "/", ...Object.keys(e[1]));
-	});
+	//	console.log(e[0], "/", ...Object.keys(e[1]));
+	//});
+	console.log(e[0], "/", ...Object.keys(e[1]));
 
 	page_content.append(new_section);
 	//page_content.append(e);
