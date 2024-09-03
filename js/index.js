@@ -123,29 +123,28 @@ list_items = {
 	},
 };
 
-const ft_toupper = (c) => {
-	if (
-		typeof c === "string" &&
-		97 <= String(c).charCodeAt(0) &&
-		String(c).charCodeAt(0) <= 122
-	) {
-		return String.fromCharCode(String(c).charCodeAt(0) - 32);
+function ft_capitalize(s) {
+	function ft_toupper(c) {
+		if (
+			typeof c === "string" &&
+			97 <= String(c).charCodeAt(0) &&
+			String(c).charCodeAt(0) <= 122
+		) {
+			return String.fromCharCode(String(c).charCodeAt(0) - 32);
+		}
 	}
-};
-
-const ft_capitalize = (s) => {
 	//if (typeof s === "string") {
 	//	let i = 0;
-
-	//	/** Go to first non-whitespace character */
-	//	while ((i += -1 < String(" \t\n\r\v").indexOf(s[i])) < s.length) {
-	//		//++i;
+	//	///** Go to first non-whitespace character */
+	//	//while ((i += -1 < String(" \t\n\r\v").indexOf(s[i])) < s.length) {
+	//	while (-1 < String(" \t\n\r\v").indexOf(s[i])) {
+	//		++i;
 	//	}
-
 	//	s[i] = ft_toupper(s[i]);
 	//}
+	s[0] = String(s[0]).toUpperCase();
 	return s;
-};
+}
 
 Object.entries(list_items).forEach((e) => {
 	const new_section = document.createElement("section");
@@ -153,7 +152,7 @@ Object.entries(list_items).forEach((e) => {
 	const new_section_thumbnail = document.createElement("img");
 	const new_section_subsections = document.createElement("div");
 
-	new_section_header.innerText = e[0];
+	new_section_header.innerText = ft_capitalize(String(e[0]).trim());
 
 	new_section.prepend(new_section_header);
 	//new_section.append(new_section_subsections);
