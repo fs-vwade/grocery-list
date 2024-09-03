@@ -45,10 +45,8 @@ list_items = {
 		},
 	},
 	freezer: {
-		frozen: {
-			milk: 1,
-			yogurt: 8,
-			eggs: 12,
+		dessert: {
+			ice_cream: 2,
 		},
 		meat: {
 			steaks: 5,
@@ -69,6 +67,20 @@ list_items = {
 		},
 		meat: {
 			bacon: 20,
+			ground_beef: 2,
+		},
+	},
+	cabinet: {
+		spices: {
+			pepper: 1,
+			thyme: 1,
+			oregano: 1,
+		},
+		sauces: {
+			bbq: 1,
+			teriyaki: 1,
+			worcestershire: 1,
+			sriracha: 3,
 		},
 	},
 };
