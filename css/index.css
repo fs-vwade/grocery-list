@@ -69,12 +69,13 @@ div.content {
 }
 
 div.content section {
+	background-color: hsl(170, 30, 70);
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
-	padding: 0 1rem;
+	width: 90%;
+	padding: 1rem;
 	border-style: solid;
-	border-width: 1px 0;
+	border-width: 1px;
 	border-color: var(--palette-mint-darker);
 }
 div.content section h2 {
@@ -84,8 +85,14 @@ div.content section h2 {
 	width: 90%;
 	padding: 0 1rem;
 	border-style: solid;
-	border-width: 1px 0;
+	border-width: 0px 0;
 	border-color: var(--palette-mint-darker);
+}
+div.content section img {
+	display: flex;
+	flex-flow: column;
+	height: 240pt;
+	width: 320pt;
 }
 .subsection {
 	display: flex;
@@ -98,6 +105,7 @@ div.content section h2 {
 	border-style: solid;
 	border-width: 1px;
 	border-color: var(--palette-mint-darker);
+	margin: 0 1em;
 }
 
 .vertical-bar {
