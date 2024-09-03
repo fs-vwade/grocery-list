@@ -108,14 +108,16 @@ list_items.forEach((e) => {
 
 	new_section_header.innerText = e.location;
 
-	new_section.append(new_section_header);
-	new_section.append(new_section_subsections);
+	new_section.prepend(new_section_header);
+	//new_section.append(new_section_subsections);
 
 	//console.log("what object?", Object.entries(e.items))
 	Object.entries(e.items).forEach((e) => {
 		subsection = document.createElement("div");
 		subsection_header = document.createElement("h3");
 		subsection_list = document.createElement("ul");
+
+		subsection.className = "subsection";
 
 		subsection_header.innerText = e[0];
 
@@ -128,7 +130,8 @@ list_items.forEach((e) => {
 
 		subsection.append(subsection_header);
 		subsection.append(subsection_list);
-		new_section_subsections.append(subsection);
+		//new_section_subsections.append(subsection);
+		new_section.append(subsection);
 
 		console.log(e[0], "/", ...Object.keys(e[1]));
 	});

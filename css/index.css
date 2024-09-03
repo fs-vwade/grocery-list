@@ -4,6 +4,11 @@
 	--palette-mint-dark: hsla(140, 100%, 16%, 9.375%);
 	--palette-mint-lighter: hsla(140, 100%, 90%, 37.5%);
 	--palette-mint-darker: hsla(140, 100%, 16%, 30%);
+	--palette-mint-darkest: hsla(140, 100%, 16%, 70%);
+	--palette-seafoam: hsl(170, 50%, 50%);
+	--palette-seafoam-lightest: hsla(170, 50%, 70%, 70%);
+	--palette-seafoam-darkest: hsla(170, 100%, 16%, 70%);
+	--palette-lemongrass: hsl(70, 61%, 85%);
 }
 body {
 	background-color: var(--palette-mint-darker);
@@ -33,7 +38,7 @@ div.main {
 	border-style: solid;
 }
 
-div.main div {
+div.main div.main-left {
 	display: flex;
 	flex-flow: inherit;
 	height: 100%;
@@ -41,6 +46,7 @@ div.main div {
 }
 
 .header {
+	color: var(--palette-seafoam);
 	flex: 0 1 auto;
 	flex-flow: column;
 	align-self: center;
@@ -60,6 +66,38 @@ div.content {
 	scrollbar-width: none;
 }
 
+div.content section {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 0 1rem;
+	border-style: solid;
+	border-width: 1px 0;
+	border-color: var(--palette-mint-darker);
+}
+div.content section h2 {
+	display: flex;
+	flex: 0 0 auto;
+	flex-flow: column;
+	width: 90%;
+	padding: 0 1rem;
+	border-style: solid;
+	border-width: 1px 0;
+	border-color: var(--palette-mint-darker);
+}
+.subsection {
+	display: flex;
+	flex: 0 1 auto;
+	flex-flow: column;
+	background-color: var(--palette-lemongrass);
+	width: calc(100% * (pow(2, 0.2) - 1));
+	min-width: 8rem;
+	padding: 0 1rem;
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--palette-mint-darker);
+}
+
 .vertical-bar {
 	width: 50%;
 	min-height: 1000px;
@@ -75,7 +113,7 @@ div.content {
 
 .footer {
 	background-color: var(--palette-mint-light);
-	flex: 1 0 2rem;
+	flex: 0 0 2rem;
 }
 
 .sidebar {
