@@ -141,35 +141,36 @@ Object.entries(list_items).forEach((e) => {
 	const new_section_thumbnail = document.createElement("img");
 	const new_section_subsections = document.createElement("div");
 
+	/** Get header from key name */
 	new_section_header.innerText = String(e[0]).capitalize();
 
 	new_section.prepend(new_section_header);
 	//new_section.append(new_section_subsections);
 
-	//console.log("what object?", Object.entries(e.items))
-	//Object.entries(e.items).forEach((e) => {
-	//	subsection = document.createElement("div");
-	//	subsection_header = document.createElement("h3");
-	//	subsection_list = document.createElement("ul");
+	// Get items from key value
+	Object.entries(e[1]).forEach((e) => {
+		subsection = document.createElement("div");
+		subsection_header = document.createElement("h3");
+		subsection_list = document.createElement("ul");
 
-	//	subsection.className = "subsection";
+		subsection.className = "subsection";
 
-	//	subsection_header.innerText = e[0];
+		subsection_header.innerText = e[0];
 
-	//	Object.keys(e[1]).forEach((e) => {
-	//		list_element = document.createElement("li");
-	//		list_element.innerText = e;
+		Object.keys(e[1]).forEach((e) => {
+			list_element = document.createElement("li");
+			list_element.innerText = e;
 
-	//		subsection_list.append(list_element);
-	//	});
+			subsection_list.append(list_element);
+		});
 
-	//	subsection.append(subsection_header);
-	//	subsection.append(subsection_list);
-	//	//new_section_subsections.append(subsection);
-	//	new_section.append(subsection);
+		subsection.append(subsection_header);
+		subsection.append(subsection_list);
+		//new_section_subsections.append(subsection);
+		new_section.append(subsection);
 
-	//	console.log(e[0], "/", ...Object.keys(e[1]));
-	//});
+		console.log(e[0], "/", ...Object.keys(e[1]));
+	});
 	console.log(e[0], "/", ...Object.keys(e[1]));
 
 	page_content.append(new_section);
