@@ -1,58 +1,3 @@
-class GroceryItem {
-	constructor(item_name, item_count, item_type) {
-		this.item_name = item_name;
-		this.item_count = item_count;
-		this.item_type = item_type;
-	}
-
-	get name() {
-		return this.item_name;
-	}
-	get count() {
-		return this.item_count;
-	}
-}
-
-/** According to the project requirements:
- * storage_location - the name of a storage location in the kitchen
- * item_dictionaries - one or more an array of item types
- *
- * struct item_dict {
- * 	item_type: [
- * 		{item_name: item_count},
- * 		...
- * 	],
- * 	...
- * }
- */
-class GroceryList {
-	constructor(storage_location, item_dictionaries) {
-		this.location = storage_location;
-		this.items = item_dictionaries;
-	}
-
-	get section() {
-		return this.location;
-	}
-
-	get subsections() {
-		return Object.keys(this.items);
-	}
-
-	/** Used to update class items using the push method.
-	 *
-	 * @param {Object} new_item
-	 */
-	update_items(new_item) {
-		Object.keys(new_item).forEach((key) => {
-			new_item[key].forEach((e) => {
-				// push method
-				this.items[key].push(e);
-			});
-		});
-	}
-}
-
 body = document.body;
 page_body = document.createElement("div");
 page_body_left = document.createElement("div");
@@ -81,24 +26,6 @@ page_header.innerText = "A Convenient Way to Shop!";
  * - canned (soup, corn, carrots, milk, beans)
  * - spices (pepper, salt, thyme)
  */
-list_items = [
-	new GroceryList("Pantry", {
-		canned: [],
-		dry: [],
-	}),
-	new GroceryList("Freezer", {
-		frozen: [],
-	}),
-	new GroceryList("Refrigerator", {
-		perishables: { milk: 1, yogurt: 12, eggs: 12 },
-		fruit: [],
-		meat: [],
-	}),
-	new GroceryList("Cabinet", {
-		spices: [],
-		dry: [],
-	}),
-];
 list_items = {
 	pantry: {
 		canned: {},
